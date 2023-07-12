@@ -101,10 +101,10 @@ WSGI_APPLICATION = 'DjangoFLix.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'djangoflix',
+        'NAME': 'postgres',
         'USER': 'postgres',
         'PASSWORD': 'Polipol131321',
-        'HOST': 'localhost',
+        'HOST': 'db.tdcfdkarsgobwhuovnne.supabase.co',
         'PORT': '5432',
     }
 }
