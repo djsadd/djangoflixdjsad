@@ -103,7 +103,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'djangoflix',
         'USER': 'postgres',
-        'PASSWORD': 'root',
+        'PASSWORD': 'Polipol131321',
         'HOST': 'localhost',
         'PORT': '5432',
     }
