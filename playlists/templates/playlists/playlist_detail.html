@@ -1,0 +1,19 @@
+{% extends "playlists/base.html" %}
+
+{% block head %}
+  {% if title %}
+    {{ object.title }} /
+  {% endif %}
+
+  {{ block.super }}
+{% endblock %}
+
+
+
+{% block content %}
+    <h1>{{ object.title }}</h1>
+
+{{ object.title }} {{ object.slug }} {{ object.get_short_display }}
+
+
+{% endblock %}

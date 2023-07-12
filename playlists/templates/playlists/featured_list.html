@@ -1,0 +1,145 @@
+{% extends 'playlists/base.html '%}
+
+{% load static %}
+
+{% block title %}
+    <title>{{ block.super }} | {{ title }}</title>
+{% endblock %}
+
+{% block content %}
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+
+    <!-- dashboard/browse page block start | home page after login | -->
+
+    <main id="mainContainer" class="p-b-40">
+        <div>
+            <div class="black-background">
+                    <section id="mylist" class="container">
+                    <h4 class="mylist-heading">
+                        My list
+                    </h4>
+
+                    <div class="mylist-container d-flex flex-start flex-middle flex-no-wrap owl-carousel">
+                         {% for res in object_list %}
+                        {% if res.playlist.video %}
+                           <a href="{% url 'video' res.video.id %}">
+                            <div class="video">
+                                <video class="mylist-img p-r-10 p-t-10 video-item"
+                                    poster="{{ res.video.poster.url }}">
+                                    <source
+                                        src="../images/tv-show/videos/Never Have I Ever - Official Trailer - Netflix_2.mp4"
+                                        type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <div class="video-description d-flex flex-end direction-column">
+                                    <div class="play-button">
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M6 4l15 8-15 8z" fill="black"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="heading f-w-8 text-shadow">
+                                            {{ res.video.title }}
+                                        </h4>
+                                    </div>
+                                    <div class="genere d-flex flex-no-wrap text-shadow">
+                                        {% for tag in res.tags.all %}
+                                            <p>#{{ tag.tag }}</p>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+                        {% else %}
+                            <a href="{% url 'serial' res.playlist.id %}">
+                            <div class="video">
+                                <video class="mylist-img p-r-10 p-t-10 video-item"
+                                    poster="{{ res.video.poster.url }}">
+                                    <source
+                                        src="../images/tv-show/videos/Never Have I Ever - Official Trailer - Netflix_2.mp4"
+                                        type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <div class="video-description d-flex flex-end direction-column">
+                                    <div class="play-button">
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M6 4l15 8-15 8z" fill="black"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="heading f-w-8 text-shadow">
+                                            {{ res.video.title }}
+                                        </h4>
+                                    </div>
+                                    <div class="genere d-flex flex-no-wrap text-shadow">
+                                        {% for tag in res.tags.all %}
+                                            <p>#{{ tag.tag }}</p>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+                        {% endif %}
+
+                    {% endfor %}
+            </div>
+
+
+                </section>
+
+
+                <!--continure watching-->
+
+                <!--big poster screen left poster right content-->
+
+            </div>
+        </div>
+
+        <footer class="mainfooter d-flex direction-column space-between" id=" footer">
+            <div class="container footer-container flex-start">
+                <div class="widgets d-flex space-between">
+                    <div class="first-widget">
+                        <ul>
+                            <li class="list-item">Audio and Subtitles</li>
+                            <li class="list-item">Media Center</li>
+                            <li class="list-item">Privacy</li>
+                            <li class="list-item">Contact us</li>
+                        </ul>
+                    </div>
+                    <div class="second-widget">
+                        <ul>
+                            <li class="list-item">Help Center</li>
+                            <li class="list-item">Cookie</li>
+                            <li class="list-item">Jobs</li>
+                        </ul>
+                    </div>
+                    <div class="third-widget">
+                        <ul>
+                            <li class="list-item">Audio Description</li>
+                            <li class="list-item">Investor Relations</li>
+                            <li class="list-item">Legal Notice</li>
+                        </ul>
+                    </div>
+                    <div class="forth-widget">
+                        <ul>
+                            <li class="list-item">Gift Card</li>
+                            <li class="list-item">Term Of Use</li>
+                            <li class="list-item">Corporate Information</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+        </footer>
+        </div>
+
+
+    </main>
+
+
+
+{% endblock %}}

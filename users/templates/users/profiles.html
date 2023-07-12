@@ -1,0 +1,99 @@
+{% extends 'playlists/base.html ' %}
+{% load static %}
+
+{% block css %}
+
+<link rel="stylesheet" href="{% static 'playlists/css/userprofile.css' %}" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css"
+    integrity="sha256-t2kyTgkh+fZJYRET5l9Sjrrl4UDain5jxdbqe8ejO8A=" crossorigin="anonymous" />
+
+{% endblock %}
+
+{% block content %}
+  <main id="mainContainer" class="p-b-40">
+        <!--profile section-->
+
+        <section class="userprofile" id="userprofilecontainer">
+            <div>
+                <h2 class="heading f-s-40">
+                    Profiles
+                </h2>
+            </div>
+            <!--plan details-->
+
+             <div class="loginContainer d-flex direction-column">
+                <h2 class="formtitle">
+                    Create profile
+                </h2>
+                <form action="{% url 'profiles' %}" id="loginForm" class="d-flex direction-column" method="post" name="loginForm">
+                    {% csrf_token %}
+                    {% for f in form %}
+                        {{ f }}
+                        {% if f.errors %}
+                            {% for err in f.errors %}
+                                <p id="errorEmail">ошибка</p>
+                                <p id="errorEmail">{{ err }}</p>
+                            {% endfor %}
+                        {% endif %}
+                    {% endfor %}
+                    <div class="line"></div>
+                    <button type="submit" class="button submitButton" id="signInButton">
+                        <a style="text-decoration: none; color: white;">Create profile</a>
+                    </button>
+                </form>
+            </div>
+
+
+            <!--settings-->
+
+            <div class="line"></div>
+
+            <!--parental control-->
+            {% include 'users/childrens_user.html' %}
+
+        </section>
+
+
+        <!--footer section and footer fixed menu mobile-->
+
+
+        <footer class="mainfooter d-flex direction-column space-between" id="footer">
+            <div class="container footer-container flex-start">
+                <div class="widgets d-flex space-between">
+                    <div class="first-widget">
+                        <ul>
+                            <li class="list-item">Audio and Subtitles</li>
+                            <li class="list-item">Media Center</li>
+                            <li class="list-item">Privacy</li>
+                            <li class="list-item">Contact us</li>
+                        </ul>
+                    </div>
+                    <div class="second-widget">
+                        <ul>
+                            <li class="list-item">Help Center</li>
+                            <li class="list-item">Cookie</li>
+                            <li class="list-item">Jobs</li>
+                        </ul>
+                    </div>
+                    <div class="third-widget">
+                        <ul>
+                            <li class="list-item">Audio Description</li>
+                            <li class="list-item">Investor Relations</li>
+                            <li class="list-item">Legal Notice</li>
+                        </ul>
+                    </div>
+                    <div class="forth-widget">
+                        <ul>
+                            <li class="list-item">Gift Card</li>
+                            <li class="list-item">Term Of Use</li>
+                            <li class="list-item">Corporate Information</li>
+                        </ul>
+                    </div>
+                </div>
+                <button class="button service">Service Code</button>
+                <p class="copyright">@copyright 2020 Vanilacodes, Inc.</p>
+            </div>
+        </footer>
+    </main>
+
+{% endblock %}

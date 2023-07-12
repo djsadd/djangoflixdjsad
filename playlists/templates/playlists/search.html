@@ -1,0 +1,120 @@
+{% extends 'playlists/base.html' %}
+
+{% block css %}
+ <style>
+        input[type=text] {
+          width: 130px;
+          box-sizing: border-box;
+          border: 1px solid white;
+          color: white;
+          border-radius: 4px;
+          font-size: 16px;
+          background-color: rgb(14, 14, 14);
+          background-position: 10px 10px;
+          background-repeat: no-repeat;
+          padding: 12px 20px 12px 40px;
+          -webkit-transition: width 0.4s ease-in-out;
+          transition: width 0.4s ease-in-out;
+        }
+
+        input[type=text]:focus {
+          width: 100%;
+        }
+        </style>
+{% endblock %}
+{% block content %}
+
+
+<!--paretn div with black bg after main hero section-->
+<div class="searchform d-flex flex-center flex-middle" style="padding-top: 150px;">
+    <form>
+        <input type="text" name="q" placeholder="Search.." autocomplete="off">
+      </form>
+</div>
+<div class="searchresult">
+
+</div>
+<main id="mainContainer" class="p-b-40">
+    <div>
+        <div class="black-background">
+            <section id="mylist" class="container">
+
+
+                <div class="mylist-container d-flex flex-start flex-middle flex-no-wrap owl-carousel">
+                    {% for res in object_list %}
+                        {% if res.is_movie %}
+                           <a href="{% url 'video' res.id %}">
+                            <div class="video">
+                                <video class="mylist-img p-r-10 p-t-10 video-item"
+                                    poster="{{ res.posters.url }}">
+                                    <source
+                                        src="../images/tv-show/videos/Never Have I Ever - Official Trailer - Netflix_2.mp4"
+                                        type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <div class="video-description d-flex flex-end direction-column">
+                                    <div class="play-button">
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M6 4l15 8-15 8z" fill="black"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="heading f-w-8 text-shadow">
+                                            {{ res.title }}
+                                        </h4>
+                                    </div>
+                                    <div class="genere d-flex flex-no-wrap text-shadow">
+                                        {% for tag in res.tags.all %}
+                                            <p>#{{ tag.tag }}</p>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+                        {% else %}
+                            <a href="{% url 'serial' res.id %}">
+                            <div class="video">
+                                <video class="mylist-img p-r-10 p-t-10 video-item"
+                                    poster="{{ res.posters.url }}">
+                                    <source
+                                        src="../images/tv-show/videos/Never Have I Ever - Official Trailer - Netflix_2.mp4"
+                                        type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <div class="video-description d-flex flex-end direction-column">
+                                    <div class="play-button">
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M6 4l15 8-15 8z" fill="black"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="heading f-w-8 text-shadow">
+                                            {{ res.title }}
+                                        </h4>
+                                    </div>
+                                    <div class="genere d-flex flex-no-wrap text-shadow">
+                                        {% for tag in res.tags.all %}
+                                            <p>#{{ tag.tag }}</p>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+                        {% endif %}
+
+                    {% endfor %}
+            </div>
+
+
+                </section>
+
+
+                <!--continure watching-->
+
+                <!--big poster screen left poster right content-->
+
+            </div>
+        </div>
+
+
+{% endblock %}

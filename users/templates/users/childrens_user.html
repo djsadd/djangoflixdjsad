@@ -1,0 +1,30 @@
+{% load static %}
+<div class="parental-control d-flex">
+    <div class="left">
+        <h4 class="headline">PROFILE & PARENTAL CONTROLS</h4>
+    </div>
+    <div class="right">
+        {% for baby in user.get_children %}
+        <div class="">
+            <div class="info-container d-flex flex-middle space-between">
+                <div class="name d-flex">
+                    <img src="{% static 'playlists/images/icons/user1.png' %}" alt="user" class="user-icon" />
+                    <div class="content">
+                        <p class="username">{{ baby.username }}</p>
+                        <p class="maturity">All Maturity Rating</p>
+                    </div>
+                </div>
+
+                <div class="righticon">
+                    <svg class="chevron-down" viewBox="0 0 18 18">
+                        <path fill="#aaa" d="M11.56 5.56L10.5 4.5 6 9l4.5 4.5 1.06-1.06L8.12 9z">
+                            <p><button><a href="{% url 'remove' baby.pk %}">Remove</a></button></p>
+                        </path>
+                    </svg>
+                </div>
+            </div>
+            <div class="line"></div>
+        </div>
+        {% endfor %}
+    </div>
+</div>

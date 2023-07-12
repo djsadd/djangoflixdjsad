@@ -1,0 +1,189 @@
+{% extends 'playlists/base.html' %}
+
+{% load static %}
+
+{% block css %}
+
+<link rel="stylesheet" href="{% static 'playlists/css/userprofile.css' %}" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css"
+    integrity="sha256-t2kyTgkh+fZJYRET5l9Sjrrl4UDain5jxdbqe8ejO8A=" crossorigin="anonymous" />
+
+{% endblock %}
+
+{% block content %}
+    <main id="mainContainer" class="p-b-40">
+        <!--profile section-->
+        <section class="userprofile" id="userprofilecontainer">
+            <div>
+                <h2 class="heading f-s-40">
+                    Account
+                </h2>
+            </div>
+            <div class="right">
+                <div class="">
+                    <div class="info-container d-flex flex-middle space-between">
+                        <div class="name d-flex">
+                            <img src="{% static 'playlists/images/icons/user1.png' %}" alt="user" class="user-icon" />
+                            <div class="content">
+                                <p class="username">{{ user.username }}</p>
+                                <p class="maturity">All Maturity Rating</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="line"></div>
+            <div class="membership d-flex flex-no-wrap space-between">
+                <div class="left">
+                    <h4 class="headline">
+                        MEMBERSHIP & BILLING
+                    </h4>
+                    <button class="button">Cancel Membership</button>
+                </div>
+                <div class="right">
+                    <div class="d-flex space-between">
+                        <div class="email">
+                            <strong>{{ user.email }}</strong>
+                        </div>
+                        <div class="link">
+                            <a href="#" class="link-item">
+                                Change account email
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="d-flex space-between">
+                        <div class="link">
+                            <a href="#" class="link-item">
+                                Change password
+                            </a>
+                        </div>
+                    </div>
+                    {% if user.phone %}
+                    <div class="d-flex space-between">
+                        <div class="email">
+
+                                Phone: {{ user.phone }}
+
+                        </div>
+                        <div class="link">
+                            <a href="#" class="link-item">
+                                Change phone number
+                            </a>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="d-flex space-between">
+                        <div class="link">
+                            {{ form.phone }}
+                             <a href="#" class="link-item">
+                                Add phone
+                            </a>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <div class="line"></div>
+
+                    <div class="carddetail d-flex space-between flex-middle">
+                        <div class="card">
+                            <h4><span class="icon-visa">VISA</span> •••• •••• •••• 5350</h4>
+                        </div>
+                        <div class="link">
+                            <a href="#" class="link-item">
+                                Update payment info
+                            </a>
+                            <a href="#" class="link-item">
+                                Biling detials
+                            </a>
+                        </div>
+                    </div>
+                    <div class="line"></div>
+
+                    <div class="gift-card d-flex direction-column">
+                        <a href="#" class="link-item">
+                            Redeem gift card or promo code
+                        </a>
+                        <a href="#" class="link-item">
+                            Where to buy gift cards
+                        </a>
+                    </div>
+                </div>  
+            </div>
+            <div class="line"></div>
+
+            <!--plan details-->
+            <div class=" plan-details d-flex flex-middle space-between">
+                <div class="left">
+                    <h4 class="headline">PLAN DETAILS</h4>
+                </div>
+                <div class="right d-flex space-between">
+                    <p>Mobile</p>
+                    <a href="#" class="link-item">Change plan</a>
+                </div>
+            </div>
+            <div class="line"></div>
+
+            <!--settings-->
+            <div class="settings d-flex ">
+                <div class="left">
+                    <h4 class="headline">SETTINGS</h4>
+                </div>
+                <div class="right d-flex direction-column">
+                    <a href="#" class="link-item">Test participation</a>
+                    <a href="#" class="link-item">Manage download devices</a>
+                    <a href="#" class="link-item">Activate a device</a>
+                    <a href="#" class="link-item">Recent device streaming activity</a>
+                    <a href="#" class="link-item">Sign out of all devices</a>
+                    <a href="#" class="link-item">Download your personal information</a>
+                </div>
+            </div>
+            <div class="line"></div>
+
+            <!--parental control-->
+
+           {% include 'users/childrens_user.html' %}
+        </section>
+
+        <!--footer section and footer fixed menu mobile-->
+
+        <footer class="mainfooter d-flex direction-column space-between" id="footer">
+            <div class="container footer-container flex-start">
+                <div class="widgets d-flex space-between">
+                    <div class="first-widget">
+                        <ul>
+                            <li class="list-item">Audio and Subtitles</li>
+                            <li class="list-item">Media Center</li>
+                            <li class="list-item">Privacy</li>
+                            <li class="list-item">Contact us</li>
+                        </ul>
+                    </div>
+                    <div class="second-widget">
+                        <ul>
+                            <li class="list-item">Help Center</li>
+                            <li class="list-item">Cookie</li>
+                            <li class="list-item">Jobs</li>
+                        </ul>
+                    </div>
+                    <div class="third-widget">
+                        <ul>
+                            <li class="list-item">Audio Description</li>
+                            <li class="list-item">Investor Relations</li>
+                            <li class="list-item">Legal Notice</li>
+                        </ul>
+                    </div>
+                    <div class="forth-widget">
+                        <ul>
+                            <li class="list-item">Gift Card</li>
+                            <li class="list-item">Term Of Use</li>
+                            <li class="list-item">Corporate Information</li>
+                        </ul>
+                    </div>
+                </div>
+                <button class="button service">Service Code</button>
+                <p class="copyright">@copyright 2020 Vanilacodes, Inc.</p>
+            </div>
+        </footer>
+    </main>
+{% endblock %}

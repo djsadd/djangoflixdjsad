@@ -1,0 +1,44 @@
+from django.test import TestCase
+from .models import *
+from django.utils import timezone
+# Create your tests here.
+
+
+class VideoModelTestCase(TestCase):
+    def setUp(self):
+        self.obj_a = Video.objects.create(title='This is my title', video_id='1')
+        self.obj_b = Video.objects.create(title='This is my title', state=PublishStateOptions.PUBLISHED, video_id='2')
+
+    def test_valid_title(self):
+        title = 'This is my title'
+        qs = Video.objects.filter(title=title)
+        self.assertTrue(qs.exists())
+
+    def test_equal_count(self):
+        qs = Video.objects.all()
+        self.assertEqual(qs.count(), 2)
+
+    def test_draft_case(self):
+        qs = Video.objects.filter(state=PublishStateOptions.DRAFT)
+        self.assertEqual(qs.count(), 1)
+
+    def test_publish_case(self):
+        qs = Video.objects.filter(state=PublishStateOptions.PUBLISHED)
+        now = timezone.now()
+        published_qs = Video.objects.filter(
+            state=PublishStateOptions.PUBLISHED,
+            publish_time_stamp__lte=now
+        )
+        self.assertEqual(qs.count(), 1)
+        self.assertTrue(published_qs.exists())
+
+    def test_slug_field(self):
+        title = self.obj_a.title
+        test_slug = slugify(title)
+        self.assertEqual(test_slug, self.obj_a.slug)
+
+    def test_publish_manager(self):
+        published_qs = Video.objects.all().published()
+        published_qs_2 = Video.objects.published()
+        self.assertTrue(published_qs.exists())
+        self.assertEqual(published_qs.count(), published_qs_2.count())

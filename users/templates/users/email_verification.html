@@ -1,0 +1,27 @@
+{% extends 'users/base.html' %}
+
+{% block content %}}
+
+
+
+    <!-- index page block start | main landing page home | -->
+
+    <main style="padding: 0px 10px;">
+        <section id="logout-section d-flex flex-center">
+            <div class="logoutContainer f-s-20 d-flex flex-center direction-column">
+                <h2 class="signOutHeader f-s-28 f-w-4" style="margin: 0;">
+                    Вы подтвердили свою почту
+                </h2>
+                <p class="logoutMessage">
+                    Only members using a shared or public computer need to end each visit to Netflix by using the Sign Out link.
+                </p>
+                <p class="logoutMessage">
+                    This computer will be redirected to the Netflix home page in 30 seconds.
+                </p>
+                <button class="button logoutButton">
+                    <a href="{% url 'login' %}">Continue</a>
+                </button>
+            </div>
+        </section>
+    </main>
+{% endblock %}}

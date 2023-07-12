@@ -1,0 +1,81 @@
+{% extends 'users/base.html' %}
+{% load static %}
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<!--<![endif]-->
+
+{% block head %}
+    <meta charset="utf-8">
+    <title>Netflix login – Watch TV Shows Online, Watch Movies Online</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+{% endblock %}
+{% block content %}
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+
+    <!-- index page block start | main landing page home | -->
+        <section id="login-form-section">
+            <!--Login form start-->
+
+                <div class="loginContainer d-flex direction-column">
+                    <h2 class="formtitle">
+                        Register Account
+                    </h2>
+                    <form action="{% url 'register' %}" id="loginForm" class="d-flex direction-column" method="post" name="loginForm">
+                        {% csrf_token %}
+                        {% for f in form %}
+                            {{ f }}
+                            {% if f.errors %}
+                                {% for err in f.errors %}
+                                    <p id="errorEmail">ошибка</p>
+                                    <p id="errorEmail">{{ err }}</p>
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+
+                        <button type="submit" class="button submitButton" id="signInButton">
+                            Register
+                        </button>
+
+                      <!--  <div class="rememberMe">
+                            <input type="checkbox" name="rememberMe" id="rememberMe" class="rememberMe">
+                            <label for="rememberMe"><span class="login-remember-me-label-text">Remember me</span></label>
+                        </div>-->
+
+                        <p class="signUpText para">
+                            Have an account? <span class="signUp"><a href="{% url 'login' %}">Sign In</a></span>
+                        </p>
+                        <p class="bottomMessage para">
+                            This page is protected by Google reCAPTCHA to ensure you're not a bot
+                        </p>
+                    </form>
+                </div>
+
+            <!--Login form End-->
+        </section>
+    </main>
+
+    <script>
+        //function to validate email address on input text change and enable submit button if it's true
+        document.getElementById('errorEmail').style.display = "none";
+        document.getElementById('errorPassword').style.display = "none";
+        function validateEmail() {
+            let email = document.getElementById('email').value;
+            let re = /\S+@\S+\.\S+/;
+            let result = re.test(email);
+            if (result) {
+                document.getElementById('errorEmail').style.display = "none";
+                document.getElementById('signInButton').disabled = false;
+               // document.getElementById("email-form").submit();
+            }
+            else {
+                document.getElementById('errorEmail').style.display = "block";
+                document.getElementById('signInButton').disabled = true;
+            }
+        }
+    </script>
+{% endblock %}
