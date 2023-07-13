@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-hb3@@m&mqc8*b&(njor%lti&cv8g=xcd$0(_18=32vici$-sdj
 DEBUG = True
 
 ALLOWED_HOSTS = ['.vercel.app', '.now.sh', '127.0.0.1']
-DOMAIN_NAME = 'djangoflixdjsad.vercel.app'
+DOMAIN_NAME = 'djangoflix.vercel.app'
 
 # Application definition
 
