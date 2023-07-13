@@ -16,8 +16,9 @@
     <title>Netflix world – Watch TV Shows Online, Watch Movies Online</title>
     <meta name="description" content="Netflix world – Watch TV Shows Online, Watch Movies Online">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{% static 'playlists/css/landing-pages.css' %}">
-    <link rel="stylesheet" href="{% static 'playlists/css/global.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/landing-pages.css' %}">
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
     {% block head %}
     {% endblock %}
 </head>
@@ -26,7 +27,7 @@
 <main style="padding: 0px 10px;">
     <header class="d-flex space-between middle-align">
         <a href="{% url 'start' %}">
-            <img src="{% static 'playlists/images/logo.png' %}" height="50px" width="170px" alt="site logo main"></img>
+            <img src="{% static 'images/logo.png' %}" height="50px" width="170px" alt="site logo main"></img>
         </a>
         {% if user.is_authenticated %}
             <button class="button"><a href="{% url 'home' %}">Watch</a></button>
