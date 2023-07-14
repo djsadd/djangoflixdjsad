@@ -7,7 +7,7 @@ from tags.admin import TagItemInline
 class MovieProxyAdmin(admin.ModelAdmin):
     inlines = [TagItemInline]
     list_display = ['title']
-    fields = ['title', 'description', 'category', 'state', 'video', 'slug', 'age_limit', 'posters', 'logo', 'trailer']
+    fields = ['title', 'description', 'category', 'state', 'video', 'slug', 'age_limit', 'posters', 'logo', 'trailer', 'img']
 
     class Meta:
         model = MovieProxy
@@ -46,7 +46,7 @@ class TVShowSeasonProxyInline(admin.TabularInline):
 
 class TVShowProxyAdmin(admin.ModelAdmin):
     inlines = [TagItemInline, TVShowSeasonProxyInline]
-    fields = ['title', 'description', 'category', 'state', 'video', 'slug', 'age_limit', 'posters', 'logo', 'trailer']
+    fields = ['title', 'description', 'category', 'state', 'video', 'slug', 'age_limit', 'posters', 'logo', 'trailer', 'img']
     list_display = ['title', 'posters']
 
     class Meta:
