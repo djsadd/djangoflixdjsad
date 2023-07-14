@@ -85,6 +85,7 @@ class Playlist(models.Model):
     posters = models.ImageField(upload_to='photos/%Y/%m/%d/', null=True, blank=True)
     logo = models.ImageField(upload_to='photos/%Y/%m/%d/', null=True, blank=True)
     trailer = models.FileField(null=True, blank=True)
+    poster = models.TextField(null=True, blank=True)
 
     objects = PlaylistManager()
 

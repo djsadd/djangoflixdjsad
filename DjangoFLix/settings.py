@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-hb3@@m&mqc8*b&(njor%lti&cv8g=xcd$0(_18=32vici$-sdj'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['.vercel.app', '.now.sh', '127.0.0.1']
 DOMAIN_NAME = 'djangoflix.vercel.app'
@@ -83,12 +83,12 @@ WSGI_APPLICATION = 'DjangoFLix.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 # DATABASES = {
-#     # 'default': {
-#     #     'ENGINE': 'django.db.backends.sqlite3',
-#     #     'NAME': BASE_DIR / 'db.sqlite3',
-#     # }
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
 #  }
-#
+
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
