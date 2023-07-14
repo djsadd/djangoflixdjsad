@@ -102,10 +102,10 @@ WSGI_APPLICATION = 'DjangoFLix.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'Polipol131321',
-        'HOST': 'db.tdcfdkarsgobwhuovnne.supabase.co',
+        'NAME': 'verceldb',
+        'USER': 'default',
+        'PASSWORD': 'Kc09PMrBywxH',
+        'HOST': 'ep-orange-river-903426-pooler.us-east-1.postgres.vercel-storage.com',
         'PORT': '5432',
     }
 }
