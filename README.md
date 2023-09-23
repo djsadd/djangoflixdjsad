@@ -29,6 +29,9 @@ DATABASES = {
 }
 ```
 
-# Third step: Run Server
+# Third step: Migrate database.
+  > - wrie in command line: py manage.py migrate
+
+# Fourth step: Run Server
   > - go to root folder in porject and runserver
   > - ```py manage.py runserver```
