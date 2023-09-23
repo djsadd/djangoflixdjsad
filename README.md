@@ -16,9 +16,9 @@
   > - source {myenvname}/Scripts/activate
   > - pip install requierements.txt
 
-# Two step: Install Redis.
-  > - Install. In Windows does not have Redis but you can install and using Virtual Machine or WSL2.
-  > - Run Redis
+# Two step: Edit setting.py
+  > - Anime
 
-> [!NOTE]
-> Redis API package already installed in project
+# Two step: Run Server
+  > - go to root folder in porject and runserver
+  > - py manage.py runserver
