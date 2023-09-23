@@ -1,7 +1,8 @@
+
 <h1 align="center"><a href="https://daniilshat.ru/" target="_blank">Netflix analogue writed in Django</a> 
 <img src="https://github.com/blackcater/blackcater/raw/main/images/Hi.gif" height="32"/></h1>
 
-# Images
+<!--- Images --->
 <img src="https://github.com/djsadd/djangoflixdjsad/blob/main/media/Снимок%20экрана%202023-09-13%20152814.png">
 <img src="https://github.com/djsadd/djangoflixdjsad/blob/main/media/Снимок%20экрана%202023-09-13%20155052.png">
 <img src="https://github.com/djsadd/djangoflixdjsad/blob/main/media/Снимок%20экрана%202023-09-13%20155804.png">
@@ -18,3 +19,6 @@
 # Two step: Install Redis.
   > - Install. In Windows does not have Redis but you can install and using Virtual Machine or WSL2.
   > - Run Redis
+
+> [!NOTE]
+> Redis API package already install in project
