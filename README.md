@@ -14,3 +14,7 @@
   > - python3 -m venv {myenvname}
   > - source {myenvname}/Scripts/activate
   > - pip install requierements.txt
+
+# Two step: Install Redis.
+  > - Install. In Windows does not have Redis but you can install and using Virtual Machine or WSL2.
+  > - Run Redis
