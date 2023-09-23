@@ -21,4 +21,4 @@
   > - Run Redis
 
 > [!NOTE]
-> Redis API package already install in project
+> Redis API package already installed in project
