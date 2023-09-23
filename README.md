@@ -12,13 +12,23 @@
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?color=%2336BCF7&lines=How+to+run+these+project)](https://git.io/typing-svg)
 
 # First step: install env and install requeirements.txt 
-  > - python3 -m venv {myenvname}
-  > - source {myenvname}/Scripts/activate
-  > - pip install requierements.txt
+  > - ```python3 -m venv {myenvname}```
+  > - ```source {myenvname}/Scripts/activate```
+  > - ```pip install requierements.txt```
 
 # Two step: Edit setting.py
-  > - Anime
+  > - delete in settings: dabatases.
+
+Use settings:
+```
+DATABASES = {
+   'default': {
+       'ENGINE': 'django.db.backends.sqlite3',
+       'NAME': BASE_DIR / 'db.sqlite3',
+   }
+}
+```
 
 # Two step: Run Server
   > - go to root folder in porject and runserver
-  > - py manage.py runserver
+  > - ```py manage.py runserver```
